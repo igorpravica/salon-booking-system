@@ -1,5 +1,9 @@
 from fastapi import FastAPI
 from app.routers import services
+from app.database import Base, engine
+from app.models.service import Service
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Salon booking system",
